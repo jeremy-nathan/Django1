@@ -1,0 +1,20 @@
+{% extends "Django_Demo_App_1/base.html" %}
+
+  {% block body_block %}
+
+    <div class="jumbotron container">
+      <h1>LOGIN</h1>
+
+      <form class="" action="{% url 'Django_Demo_App_1:login' %}" method="POST">
+        {% csrf_token %}
+        <label for="username">Username</label>
+        <input type="text" name="username" placeholder="Enter Username">
+        <br>
+        <label for="password">Password</label>
+        <input type="password" name="password" placeholder="Enter Password">
+        <br>
+        <input type="submit" class="btn btn-primary" value="Log In">
+      </form>
+    </div>
+
+    {% endblock %}

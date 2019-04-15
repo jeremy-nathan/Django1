@@ -1,0 +1,22 @@
+{% extends "Django_Demo_App_1/base.html" %}
+
+{% block body_block %}
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>RELATIVE URL PAGE</title>
+  </head>
+  <body>
+    <h1>RELATIVE URL PAGE</h1>
+    <!-- LINK TO OTHER PAGE -->
+    <a href="{% url 'Django_Demo_App_1:register' %}">REGISTER</a>
+    <br>
+    <!-- LINK TO ADMIN PAGE -->
+    <a href="{% url 'admin:index' %}">ADMIN PAGE</a>
+
+    <!-- LINK TO INDEX PAGE -->
+    <a href="{% url 'index' %}">INDEX PAGE</a>
+  </body>
+</html>
+
+{% endblock %}
