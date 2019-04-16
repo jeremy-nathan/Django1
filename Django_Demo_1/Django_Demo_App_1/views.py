@@ -6,6 +6,7 @@ from django.urls import reverse
 from django.contrib.auth.decorators import login_required
 from django.http import HttpResponseRedirect,HttpResponse
 from django.contrib.auth import authenticate,login,logout
+from django.views.generic import View, TemplateView
 # Create your views here.
 
 def index(request):
@@ -107,3 +108,15 @@ def user_logout(request):
 @login_required
 def special(request):
     return HttpResponse("You are logged in")
+
+class CBView(View):
+    def get(self, request):
+        return HttpResponse("CBV!!")
+
+class IndexView(TemplateView):
+    template_name='Django_Demo_App_1/index.html'
+
+    def get_context_data(self,**kwargs):
+        context=super().get_context_data(**kwargs)
+        context['templateview']='Vanakam'
+        return context
