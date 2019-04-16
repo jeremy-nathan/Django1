@@ -122,8 +122,10 @@ class IndexView(TemplateView):
         return context
 
 class SchoolListView(ListView):
-    model=School()
+    model=School
+    context_object_name='schools'
 
 class SchoolDetailView(DetailView):
-    model=School()
+    context_object_name='school_detail'
+    model=School
     template_name='Django_Demo_App_1/school_detail.html'

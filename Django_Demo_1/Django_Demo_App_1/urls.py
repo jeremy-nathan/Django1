@@ -4,6 +4,8 @@ from Django_Demo_App_1 import views
 app_name='Django_Demo_App_1'
 
 urlpatterns=[
+        path('list/',views.SchoolListView.as_view(),name='list'),
+        path('list/<int:pk>/',views.SchoolDetailView.as_view(),name='details'),
         path('CBV/',views.IndexView.as_view()),
         path('life/',views.index,name='index'),
         path('other/',views.other,name='other'),
