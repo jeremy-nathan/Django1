@@ -1,12 +1,12 @@
 from django.shortcuts import render
 from django.http import HttpResponse
-from Django_Demo_App_1.models import AccessRecord,Topic,Webpage,UserProfileInfo
+from Django_Demo_App_1.models import AccessRecord,Topic,Webpage,UserProfileInfo,School,Student
 from Django_Demo_App_1.forms import UserForm, UserProfileInfoForm
 from django.urls import reverse
 from django.contrib.auth.decorators import login_required
 from django.http import HttpResponseRedirect,HttpResponse
 from django.contrib.auth import authenticate,login,logout
-from django.views.generic import View, TemplateView
+from django.views.generic import View, TemplateView,ListView,DetailView
 # Create your views here.
 
 def index(request):
@@ -120,3 +120,10 @@ class IndexView(TemplateView):
         context=super().get_context_data(**kwargs)
         context['templateview']='Vanakam'
         return context
+
+class SchoolListView(ListView):
+    model=School()
+
+class SchoolDetailView(DetailView):
+    model=School()
+    template_name='Django_Demo_App_1/school_detail.html'
