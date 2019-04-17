@@ -141,5 +141,4 @@ class SchoolUpdateView(UpdateView):
 
 class SchoolDeleteView(DeleteView):
     model=School
-    template_name='Django_Demo_App_1/delete_school.html'
     success_url=reverse_lazy('Django_Demo_App_1:list')
