@@ -12,5 +12,10 @@
     {% for student in school_detail.students.all %}
       <p>{{student.name}}, Age:{{student.age}}</p>
     {% endfor %}
+    <p></p>
+    <p> <a class="btn btn-warning" href="{% url 'Django_Demo_App_1:update' pk=school_detail.pk %}">Update</a></p>
+    <p> <a class="btn btn-danger" href="{% url 'Django_Demo_App_1:delete' pk=school_detail.pk %}">Delete</a></p>
   </div>
+
+
 {% endblock %}

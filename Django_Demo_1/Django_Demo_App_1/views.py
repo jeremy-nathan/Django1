@@ -2,11 +2,11 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from Django_Demo_App_1.models import AccessRecord,Topic,Webpage,UserProfileInfo,School,Student
 from Django_Demo_App_1.forms import UserForm, UserProfileInfoForm
-from django.urls import reverse
+from django.urls import reverse,reverse_lazy
 from django.contrib.auth.decorators import login_required
 from django.http import HttpResponseRedirect,HttpResponse
 from django.contrib.auth import authenticate,login,logout
-from django.views.generic import View, TemplateView,ListView,DetailView
+from django.views.generic import View,TemplateView,ListView,DetailView,CreateView,UpdateView,DeleteView
 # Create your views here.
 
 def index(request):
@@ -129,3 +129,17 @@ class SchoolDetailView(DetailView):
     context_object_name='school_detail'
     model=School
     template_name='Django_Demo_App_1/school_detail.html'
+
+class SchoolCreateView(CreateView):
+    model=School
+    fields=('name','principal','location')
+    # template_name='Django_Demo_App_1/school_form.html'
+
+class SchoolUpdateView(UpdateView):
+    model=School
+    fields=('name','principal')
+
+class SchoolDeleteView(DeleteView):
+    model=School
+    template_name='Django_Demo_App_1/delete_school.html'
+    success_url=reverse_lazy('Django_Demo_App_1:list')

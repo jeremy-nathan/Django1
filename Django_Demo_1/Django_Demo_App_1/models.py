@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
+from django.urls import reverse
 # Create your models here.
 class Topic(models.Model):
     top_name=models.CharField(max_length=264,unique=True)
@@ -38,8 +39,12 @@ class School(models.Model):
     principal=models.CharField(max_length=256)
     location=models.CharField(max_length=256)
 
+    def get_absolute_url(self):
+        return reverse('Django_Demo_App_1:details',kwargs={'pk':self.pk})
+
     def __str__(self):
         return self.name
+
 
 class Student(models.Model):
     name=models.CharField(max_length=256)

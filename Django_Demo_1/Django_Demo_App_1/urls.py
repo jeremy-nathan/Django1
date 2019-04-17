@@ -12,4 +12,7 @@ urlpatterns=[
         path('relative/',views.relative,name='relative'),
         path('register/',views.register,name='register'),
         path('login/',views.user_login,name='login'),
+        path('create/',views.SchoolCreateView.as_view(),name='create'),
+        path('update/<int:pk>/',views.SchoolUpdateView.as_view(),name='update'),
+        path('delete/<int:pk>/',views.SchoolDeleteView.as_view(),name='delete'),
 ]

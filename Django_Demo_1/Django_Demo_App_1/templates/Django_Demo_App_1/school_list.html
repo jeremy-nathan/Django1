@@ -8,5 +8,9 @@
         <h2><li><a href="{{school.id}}/">{{school.name}}</a></li></h2>
       {% endfor %}
     </ol>
+    <div class="row">
+      <a class="btn btn-primary" href="{% url 'Django_Demo_App_1:create' %}">Create School</a>
+      <a class="btn btn-danger" href="{% url 'Django_Demo_App_1:delete' %}">Delete School</a>
+    </div>
   </div>
 {% endblock %}
